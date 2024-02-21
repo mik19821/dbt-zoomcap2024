@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: staging
+    database: valued-bastion-411614
+    schema: ny_taxi
+
+    tables:
+      - name: green_tripdata_p
+  
