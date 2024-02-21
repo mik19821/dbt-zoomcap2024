@@ -6,7 +6,5 @@ sources:
     schema: dbt_taxi
 
     tables:
-      - name: green_tripdata_ext
-      - name: yellow_tripdata_ext
       - name: fhv_tripdata_ext
   
