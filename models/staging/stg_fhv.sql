@@ -4,14 +4,16 @@ select
     dispatching_base_num,
     cast(pickup_datetime as timestamp) as pickup_datetime,
     cast(dropOff_datetime as timestamp) as dropoff_datetime,
-    cast(pulocationid as integer) as pickup_locationid,
-    cast(dolocationid as integer) as dropoff_locationid,
-    cast(sr_flag as integer) as is_shared_ride,
-    affiliated_base_number
-from {{ source("staging", "fhv_trip_ext") }}
+    -- pulocationid as pickup_locationid,
+    -- dolocationid as dropoff_locationid,
+    pulocationid as pickup_locationid,
+    dolocationid as dropoff_locationid,
+    cast(sr_flag as integer) as is_shared_ride
+from {{ source("staging", "fhv_tripdata_nonp") }}
 
-{% if var('is_test_run', default=true) %}
+-- dbt run -m stg_fhv --vars '{'is_test_run',default=false}'
+-- {% if var('is_test_run', default=true) %}
 
-    limit 100
+--     limit 100
 
-{% endif %}
+-- {% endif %}
