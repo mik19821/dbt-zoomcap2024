@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    database: valued-bastion-411614
+    schema: dbt_taxi
+
+    tables:
+      - name: fhv_tripdata_nonp
+      - name: green_tripdata_nonp
+      - name: yellow_tripdata_nonp
+  
